@@ -8,6 +8,12 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
+import { BrowserTab } from '@ionic-native/browser-tab';
+import { BatteryStatus } from '@ionic-native/battery-status';
+import { Geolocation } from '@ionic-native/geolocation';
+
+import { CameraMock } from '../mocks/CameraMock';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: Camera, useClass: CameraMock },
+    BrowserTab,
+    BatteryStatus,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
